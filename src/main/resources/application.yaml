@@ -7,4 +7,5 @@ books:
   book-by-id-endpoint: /books/{id}
   create-book-endpoint: /books
   update-book-endpoint: /books/{id}
-  supported-languages-endpoint: /books/{id}/supported-languages
+  supported-languages-endpoint: /books/{id}/languages
+  update-supported-languages-endpoint: /books/{id}/languages

@@ -14,10 +14,7 @@ import lombok.extern.jackson.Jacksonized;
 @Accessors(fluent = true, chain = false)
 @Builder(builderClassName = "Builder", toBuilder = true)
 @EqualsAndHashCode
-public class BookDto {
-
-  @JsonProperty("id")
-  Long id;
+public class UpdateBookDto {
 
   @JsonProperty("name")
   String name;
@@ -28,8 +25,8 @@ public class BookDto {
   @JsonProperty("publisher")
   String publisher;
 
-  @JsonProperty("originalLanguage")
-  LanguageDto originalLanguage;
+  @JsonProperty("originalLanguageId")
+  Long originalLanguageId;
 
   @JsonProperty("isPublished")
   boolean isPublished;

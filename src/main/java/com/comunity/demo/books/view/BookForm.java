@@ -1,11 +1,12 @@
 package com.comunity.demo.books.view;
 
 import com.comunity.demo.books.service.BookService;
+import com.comunity.demo.books.service.LanguageService;
+import com.comunity.demo.books.view.book.BookInfo;
 import com.comunity.demo.books.view.book.BookView;
 import com.comunity.demo.books.view.model.Book;
 import com.comunity.demo.books.view.model.BookDto;
 import com.comunity.demo.books.view.model.LanguageDto;
-import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H4;
@@ -16,16 +17,14 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.RouterLink;
 import java.util.List;
 
 public class BookForm extends VerticalLayout {
 
-  public BookForm(BookDto book, BookService bookService) {
+  public BookForm(BookDto book, BookService bookService, LanguageService languageService) {
 
-    BookInfo bookInfo = new BookInfo();
+    BookInfo bookInfo = new BookInfo(true, null, languageService, bookService);
     SupportedLanguages supportedLanguages = new SupportedLanguages();
     HorizontalLayout basicInfo = new HorizontalLayout(bookInfo, supportedLanguages);
     basicInfo.setMinWidth("80%");
@@ -45,32 +44,6 @@ public class BookForm extends VerticalLayout {
     bookInfo.setBook(Book.fromDto(book));
     bookService.getSupportedLanguages(book.id())
         .subscribe(dto -> getUI().ifPresent(ui -> ui.access(() -> supportedLanguages.setLanguages(dto.supportedLanguages()))));
-  }
-
-  static class BookInfo extends VerticalLayout {
-
-    private final Binder<Book> binder;
-    public BookInfo() {
-      setWidthFull();
-
-      TextField bookIdText = new TextField("Book Id");
-      TextField bookNameText = new TextField("Book Name");
-      Checkbox publishedCheck = new Checkbox("Is book published");
-      Checkbox internationalCheck = new Checkbox("Is book international");
-
-      binder = new Binder<>();
-      binder.bind(bookIdText, id -> String.valueOf(id.getId()), null);
-      binder.bind(bookNameText, Book::getName, null);
-      binder.bind(publishedCheck, Book::isPublished, null);
-      binder.bind(internationalCheck, Book::isInternational, null);
-
-      add(bookIdText, bookNameText, publishedCheck, internationalCheck);
-      setSpacing(true);
-    }
-
-    public void setBook(Book book) {
-      binder.readBean(book);
-    }
   }
 
   static class SupportedLanguages extends VerticalLayout {

@@ -20,6 +20,7 @@ public class BackendConfig {
   private String booksEndpoint;
   private String bookByIdEndpoint;
   private String supportedLanguagesEndpoint;
+  private String updateSupportedLanguagesEndpoint;
   private String createBookEndpoint;
   private String updateBookEndpoint;
 

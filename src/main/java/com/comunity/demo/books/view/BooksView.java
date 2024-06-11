@@ -3,6 +3,7 @@ package com.comunity.demo.books.view;
 import static com.comunity.demo.books.util.Icons.icon;
 
 import com.comunity.demo.books.service.BookService;
+import com.comunity.demo.books.service.LanguageService;
 import com.comunity.demo.books.view.book.BookView;
 import com.comunity.demo.books.view.model.BookDto;
 import com.vaadin.flow.component.Component;
@@ -24,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 public class BooksView extends VerticalLayout {
   private final HorizontalLayout bookPlaceholder;
 
-  public BooksView(BookService bookService) {
+  public BooksView(BookService bookService, LanguageService languageService) {
     Grid<BookDto> grid = new Grid<>();
     grid.setSelectionMode(SelectionMode.SINGLE);
     grid.setAllRowsVisible(true);
@@ -42,7 +43,7 @@ public class BooksView extends VerticalLayout {
     grid.addSelectionListener(event -> {
       Optional<BookDto> selected = event.getFirstSelectedItem();
       bookPlaceholder.removeAll();
-      selected.ifPresent(bookDto -> bookPlaceholder.add(new BookForm(bookDto, bookService)));
+      selected.ifPresent(bookDto -> bookPlaceholder.add(new BookForm(bookDto, bookService, languageService)));
     });
 
     bookService.getBooks()
@@ -54,7 +55,6 @@ public class BooksView extends VerticalLayout {
     Checkbox checkbox = new Checkbox();
     checkbox.setValue(bookDto.isPublished());
     checkbox.setReadOnly(true);
-
     return checkbox;
   }
 

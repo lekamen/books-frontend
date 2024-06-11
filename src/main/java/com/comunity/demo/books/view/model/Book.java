@@ -10,13 +10,14 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = false)
 @Builder(builderClassName = "Builder", toBuilder = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 public class Book {
 
   Long id;
   String name;
   String author;
   String publisher;
+  Language originalLanguage;
   boolean isPublished;
   boolean isInternational;
 
@@ -26,6 +27,7 @@ public class Book {
         .name(dto.name())
         .author(dto.author())
         .publisher(dto.publisher())
+        .originalLanguage(Language.fromDto(dto.originalLanguage()))
         .isPublished(dto.isPublished())
         .isInternational(dto.isInternational())
         .build();
