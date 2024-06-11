@@ -1,0 +1,20 @@
+a[highlight] {
+    color: hotpink !important;
+}
+
+a:hover {
+    color: hotpink !important;
+}
+
+html {
+    --lumo-border-radius-m: 1em;
+}
+
+.clickable {
+    cursor: pointer;
+    color: var(--lumo-primary-text-color);
+}
+
+.clickable:hover {
+    color: hotpink !important;
+}

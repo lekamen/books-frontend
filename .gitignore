@@ -1,0 +1,49 @@
+node_modules
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+src/main/bundles
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+bower_components
+node
+/frontend/generated
+/frontend/index.html
+*/flow-*/frontend
+package-lock.json
+**/webpack.generated.js
+
+vite.config.ts
+*.generated.js
+*.generated.ts
+tsconfig.json
+types.d.ts

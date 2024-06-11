@@ -1,0 +1,10 @@
+server:
+  port: 8082
+books:
+  base-url: http://localhost:8080
+  languages-endpoint: /languages
+  books-endpoint: /books
+  book-by-id-endpoint: /books/{id}
+  create-book-endpoint: /books
+  update-book-endpoint: /books/{id}
+  supported-languages-endpoint: /books/{id}/supported-languages
