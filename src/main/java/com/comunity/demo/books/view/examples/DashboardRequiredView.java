@@ -34,10 +34,10 @@ public class DashboardRequiredView extends VerticalLayout {
 
     binder = new Binder<>(); // different options here based on constructor
 
-//    binder.forField(nameText).asRequired().bind(HelloModel::getName, HelloModel::setName); // also different options here
-    binder.forField(nameText)
-        .withValidator(value -> value != null && !value.isBlank(), "Value cannot be blank")
-        .bind(HelloModel::getName, HelloModel::setName);
+    binder.forField(nameText).asRequired().bind(HelloModel::getName, HelloModel::setName); // also different options here
+//    binder.forField(nameText)
+//        .withValidator(value -> value != null && !value.isBlank(), "Value cannot be blank")
+//        .bind(HelloModel::getName, HelloModel::setName);
 
     model = new HelloModel();
     binder.readBean(model); // setBean
