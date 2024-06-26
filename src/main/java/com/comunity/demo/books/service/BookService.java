@@ -1,11 +1,11 @@
 package com.comunity.demo.books.service;
 
 import com.comunity.demo.books.config.BackendConfig;
-import com.comunity.demo.books.view.model.Book;
-import com.comunity.demo.books.view.model.BookDto;
-import com.comunity.demo.books.view.model.SupportedLanguagesDto;
-import com.comunity.demo.books.view.model.UpdateBookDto;
-import com.comunity.demo.books.view.model.UpdateLanguagesDto;
+import com.comunity.demo.books.view.books.model.Book;
+import com.comunity.demo.books.view.books.model.BookDto;
+import com.comunity.demo.books.view.books.model.SupportedLanguagesDto;
+import com.comunity.demo.books.view.books.model.UpdateBookDto;
+import com.comunity.demo.books.view.books.model.UpdateLanguagesDto;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,7 +29,6 @@ public class BookService {
     booksTypeReference = new ParameterizedTypeReference<>() {};
   }
 
-  //TODO: lazy loading?
   public Mono<List<BookDto>> getBooks() {
     return client.get()
         .uri(config.getBooksEndpoint())

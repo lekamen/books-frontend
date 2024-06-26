@@ -1,11 +1,11 @@
-package com.comunity.demo.books.view.book;
+package com.comunity.demo.books.view.books.book;
 
 import com.comunity.demo.books.service.BookService;
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.BooksView;
-import com.comunity.demo.books.view.MainLayout;
-import com.comunity.demo.books.view.model.Book;
-import com.comunity.demo.books.view.model.Language;
+import com.comunity.demo.books.view.books.BooksMainLayout;
+import com.comunity.demo.books.view.books.BooksView;
+import com.comunity.demo.books.view.books.model.Book;
+import com.comunity.demo.books.view.books.model.Language;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -22,7 +22,7 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 import lombok.extern.slf4j.Slf4j;
 
-@Route(value = "books", layout = MainLayout.class)
+@Route(value = "books", layout = BooksMainLayout.class)
 @Slf4j
 public class BookView extends VerticalLayout implements HasUrlParameter<Long>, HasDynamicTitle {
 
@@ -78,6 +78,13 @@ public class BookView extends VerticalLayout implements HasUrlParameter<Long>, H
             bookInfo.setBook(book);
             languageForm.setLanguages(bookId, book.getOriginalLanguage());
           })));
+
+//      BookDto dto = bookService.getById(bookId).block();
+//      book = Book.fromDto(dto);
+//      title = "Book " + book.getName();
+//
+//      bookInfo.setBook(book);
+//      languageForm.setLanguages(bookId, book.getOriginalLanguage());
     }
     else {
       title = "Book unknown";

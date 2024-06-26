@@ -1,4 +1,4 @@
-package com.comunity.demo.books.view;
+package com.comunity.demo.books.view.books;
 
 import static com.comunity.demo.books.util.Icons.icon;
 
@@ -15,13 +15,11 @@ import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Push
-public class MainLayout extends AppLayout implements RouterLayout, AppShellConfigurator {
+public class BooksMainLayout extends AppLayout implements RouterLayout, AppShellConfigurator {
 
-  public MainLayout() {
+  public BooksMainLayout() {
     createHeader();
     createDrawer();
   }

@@ -1,17 +1,15 @@
-package com.comunity.demo.books.view;
+package com.comunity.demo.books.view.books;
 
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.model.LanguageDto;
-import com.vaadin.flow.component.dependency.CssImport;
+import com.comunity.demo.books.view.books.model.LanguageDto;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import lombok.extern.slf4j.Slf4j;
 
-@Route(value = "languages", layout = MainLayout.class)
+@Route(value = "languages", layout = BooksMainLayout.class)
 @PageTitle("Languages")
-@CssImport("./styles/highlight.css")
 @Slf4j
 public class LanguagesView extends VerticalLayout {
 
@@ -23,8 +21,7 @@ public class LanguagesView extends VerticalLayout {
     grid.addColumn(LanguageDto::code).setHeader("Code");
     add(grid);
 
-    //TODO: try blocking way also for demonstration
-    languageService.getLanguages()
-        .subscribe(languages -> getUI().ifPresent(ui -> ui.access(() -> grid.setItems(languages))));
+    // blocking way
+    grid.setItems(languageService.getLanguages().block());
   }
 }

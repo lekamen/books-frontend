@@ -1,4 +1,4 @@
-package com.comunity.demo.books.view.model;
+package com.comunity.demo.books.view.books.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -13,8 +13,8 @@ import lombok.extern.jackson.Jacksonized;
 @AllArgsConstructor
 @Accessors(fluent = true, chain = false)
 @Builder(builderClassName = "Builder", toBuilder = true)
-@EqualsAndHashCode
-public class BookDto {
+@EqualsAndHashCode(of = "id")
+public class LanguageDto {
 
   @JsonProperty("id")
   Long id;
@@ -22,18 +22,7 @@ public class BookDto {
   @JsonProperty("name")
   String name;
 
-  @JsonProperty("author")
-  String author;
+  @JsonProperty("code")
+  String code;
 
-  @JsonProperty("publisher")
-  String publisher;
-
-  @JsonProperty("originalLanguage")
-  LanguageDto originalLanguage;
-
-  @JsonProperty("isPublished")
-  boolean isPublished;
-
-  @JsonProperty("isInternational")
-  boolean isInternational;
 }

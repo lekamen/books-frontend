@@ -1,12 +1,12 @@
-package com.comunity.demo.books.view;
+package com.comunity.demo.books.view.books;
 
 import com.comunity.demo.books.service.BookService;
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.book.BookInfo;
-import com.comunity.demo.books.view.book.BookView;
-import com.comunity.demo.books.view.model.Book;
-import com.comunity.demo.books.view.model.BookDto;
-import com.comunity.demo.books.view.model.LanguageDto;
+import com.comunity.demo.books.view.books.book.BookInfo;
+import com.comunity.demo.books.view.books.book.BookView;
+import com.comunity.demo.books.view.books.model.Book;
+import com.comunity.demo.books.view.books.model.BookDto;
+import com.comunity.demo.books.view.books.model.LanguageDto;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.H4;
@@ -24,6 +24,7 @@ public class BookForm extends VerticalLayout {
 
   public BookForm(BookDto book, BookService bookService, LanguageService languageService) {
 
+    setSizeFull();
     BookInfo bookInfo = new BookInfo(true, null, languageService, bookService);
     SupportedLanguages supportedLanguages = new SupportedLanguages();
     HorizontalLayout basicInfo = new HorizontalLayout(bookInfo, supportedLanguages);
@@ -35,7 +36,7 @@ public class BookForm extends VerticalLayout {
     RouterLink bookView = new RouterLink(BookView.class, book.id());
     bookView.add(icon);
 
-    VerticalLayout title = new VerticalLayout(new H2(new Span("Book info"), new Span(bookView)));
+    HorizontalLayout title = new HorizontalLayout(new H2(new Span("Book info"), new Span(bookView)));
     title.setSpacing(true);
 
     add(title);

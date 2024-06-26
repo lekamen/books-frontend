@@ -1,10 +1,10 @@
-package com.comunity.demo.books.view.book;
+package com.comunity.demo.books.view.books.book;
 
 import com.comunity.demo.books.service.BookService;
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.model.BookSupportedLanguage;
-import com.comunity.demo.books.view.model.Language;
-import com.comunity.demo.books.view.model.LanguageDto;
+import com.comunity.demo.books.view.books.model.BookSupportedLanguage;
+import com.comunity.demo.books.view.books.model.Language;
+import com.comunity.demo.books.view.books.model.LanguageDto;
 import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;

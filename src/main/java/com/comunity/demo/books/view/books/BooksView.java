@@ -1,17 +1,16 @@
-package com.comunity.demo.books.view;
+package com.comunity.demo.books.view.books;
 
 import static com.comunity.demo.books.util.Icons.icon;
 
 import com.comunity.demo.books.service.BookService;
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.book.BookView;
-import com.comunity.demo.books.view.model.BookDto;
+import com.comunity.demo.books.view.books.book.BookView;
+import com.comunity.demo.books.view.books.model.BookDto;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.Grid.SelectionMode;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -19,16 +18,15 @@ import com.vaadin.flow.router.RouterLink;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 
-@Route(value = "books", layout = MainLayout.class)
+@Route(value = "books", layout = BooksMainLayout.class)
 @PageTitle("Books")
 @Slf4j
 public class BooksView extends VerticalLayout {
-  private final HorizontalLayout bookPlaceholder;
 
   public BooksView(BookService bookService, LanguageService languageService) {
     Grid<BookDto> grid = new Grid<>();
     grid.setSelectionMode(SelectionMode.SINGLE);
-    grid.setAllRowsVisible(true);
+    grid.setAllRowsVisible(true); //TODO: comment this
     grid.addColumn(BookDto::author).setHeader("Author");
     grid.addColumn(BookDto::name).setHeader("Name");
     grid.addColumn(BookDto::publisher).setHeader("Publisher");
@@ -36,7 +34,7 @@ public class BooksView extends VerticalLayout {
     grid.addComponentColumn(this::linkRenderer).setHeader("Edit");
     add(grid);
 
-    bookPlaceholder = new HorizontalLayout();
+    VerticalLayout bookPlaceholder = new VerticalLayout();
     bookPlaceholder.setWidthFull();
     add(bookPlaceholder);
 

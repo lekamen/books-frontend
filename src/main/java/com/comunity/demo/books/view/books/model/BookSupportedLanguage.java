@@ -1,4 +1,4 @@
-package com.comunity.demo.books.view.model;
+package com.comunity.demo.books.view.books.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

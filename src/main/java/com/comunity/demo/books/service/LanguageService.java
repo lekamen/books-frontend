@@ -1,7 +1,7 @@
 package com.comunity.demo.books.service;
 
 import com.comunity.demo.books.config.BackendConfig;
-import com.comunity.demo.books.view.model.LanguageDto;
+import com.comunity.demo.books.view.books.model.LanguageDto;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;

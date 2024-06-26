@@ -1,4 +1,4 @@
-package com.comunity.demo.books.view.model;
+package com.comunity.demo.books.view.books.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

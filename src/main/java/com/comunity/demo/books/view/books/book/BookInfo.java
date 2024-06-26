@@ -1,11 +1,11 @@
-package com.comunity.demo.books.view.book;
+package com.comunity.demo.books.view.books.book;
 
 import com.comunity.demo.books.exception.ValidationException;
 import com.comunity.demo.books.service.BookService;
 import com.comunity.demo.books.service.LanguageService;
-import com.comunity.demo.books.view.model.Book;
-import com.comunity.demo.books.view.model.BookDto;
-import com.comunity.demo.books.view.model.Language;
+import com.comunity.demo.books.view.books.model.Book;
+import com.comunity.demo.books.view.books.model.BookDto;
+import com.comunity.demo.books.view.books.model.Language;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.notification.Notification;
