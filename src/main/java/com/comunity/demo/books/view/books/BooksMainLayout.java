@@ -9,15 +9,13 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.AppShellConfigurator;
-import com.vaadin.flow.component.page.Push;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 
-@Push
-public class BooksMainLayout extends AppLayout implements RouterLayout, AppShellConfigurator {
+//@Push
+public class BooksMainLayout extends AppLayout implements RouterLayout/*, AppShellConfigurator */{
 
   public BooksMainLayout() {
     createHeader();
