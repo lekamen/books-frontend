@@ -22,8 +22,8 @@ public class DashboardHorizontalView extends VerticalLayout {
     HorizontalLayout row = new HorizontalLayout(name, sayHello);
     add(row);
 
-    row.setDefaultVerticalComponentAlignment(Alignment.END);
-    name.setRequired(true);
+    //row.setDefaultVerticalComponentAlignment(Alignment.END);
+    //name.setRequired(true);
 
     // Handle clicks
     sayHello.addClickListener(e -> Notification.show("Hello " + name.getValue()));
